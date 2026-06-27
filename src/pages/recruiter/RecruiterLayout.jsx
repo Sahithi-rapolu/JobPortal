@@ -1,10 +1,12 @@
+// src/pages/recruiter/RecruiterLayout.jsx
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
-function RecruiterLayout() {
+function RecruiterLayout({ user, setUser }) {
   const navigate = useNavigate();
 
   const logout = () => {
     localStorage.clear();
+    setUser(null);
     navigate("/");
   };
 
@@ -15,18 +17,19 @@ function RecruiterLayout() {
       <div className="bg-dark text-white p-3" style={{ width: "220px", minHeight: "100vh" }}>
 
         <h4>Recruiter</h4>
+        <p className="small text-secondary">{user?.name || 'Recruiter'}</p>
 
-        <Link className="d-block text-white mt-3" to="/recruiter/home">Home</Link>
-        <Link className="d-block text-white mt-2" to="/recruiter/post-job">Post Job</Link>
-        <Link className="d-block text-white mt-2" to="/recruiter/manage-jobs">Manage Jobs</Link>
-        <Link className="d-block text-white mt-2" to="/recruiter/applicants">Applicants</Link>
+        <Link className="d-block text-white mt-3 text-decoration-none" to="/recruiter/home">🏠 Home</Link>
+        <Link className="d-block text-white mt-2 text-decoration-none" to="/recruiter/post-job">📝 Post Job</Link>
+        <Link className="d-block text-white mt-2 text-decoration-none" to="/recruiter/manage-jobs">💼 Manage Jobs</Link>
+        <Link className="d-block text-white mt-2 text-decoration-none" to="/recruiter/applicants">👥 Applicants</Link>
 
       </div>
 
       {/* Main */}
       <div className="w-100">
 
-        <div className="bg-dark text-white p-2 d-flex justify-content-between">
+        <div className="bg-dark text-white p-2 d-flex justify-content-between align-items-center">
           <h5 className="m-0">Recruiter Dashboard</h5>
           <button className="btn btn-light btn-sm" onClick={logout}>
             Logout
