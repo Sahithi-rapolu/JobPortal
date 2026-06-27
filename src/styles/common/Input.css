@@ -1,0 +1,25 @@
+.input-container{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:18px;
+}
+
+.input-container label{
+    font-weight:600;
+    margin-bottom:8px;
+    color:#1e293b;
+}
+
+.input-container input{
+    padding:12px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    font-size:16px;
+    transition:.3s;
+}
+
+.input-container input:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
